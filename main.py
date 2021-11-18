@@ -4,11 +4,10 @@ import operator
 
 ops = { "+": operator.add, "-": operator.sub }
 
-
-def main(mode):
+def main(mode,x=1,y=100):
 	while True==True:
-		a = random.randint(1,100)
-		b = random.randint(1,100)
+		a = random.randint(x,y)
+		b = random.randint(x,y)
 		c = ops[mode](a,b)
 
 		print(a,mode,b,"= ", end='')
@@ -26,17 +25,21 @@ def main(mode):
 			print(Fore.RED + 'Wrong',Style.RESET_ALL, a,mode,b,"=",c)
 
 
-def menu():
+def menu():	
 	print("Hello")
-	print("+ |sum","- |subtraction",sep='\n')
-	
-	mode = input()
-	
-	if mode == "+":
-		main("+")
-	if mode == "-":
-		main("-")
-	
-	
-menu()
+	while True==True:
+		print("+ |sum","- |subtraction",sep='\n')
+		
+		mode = input()
+		
+		if mode == "+":
+			main("+")
+		if mode == "-":
+			main("-")
+		if mode == "exit":
+			break	
+		else:
+			print("Ops,something wrong")
 
+		
+menu()
