@@ -1,6 +1,6 @@
 # training-arithmetic
 
-##Soft for training mental arithmetic.
+## Soft for training mental arithmetic.
 -----
 
 lib:
