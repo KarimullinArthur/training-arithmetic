@@ -21,9 +21,17 @@ def main(mode,x=1,y=100):
 		if result == c:
 			print(Fore.GREEN + 'Right',Style.RESET_ALL)
 
-		else :
+		if result != c:
 			print(Fore.RED + 'Wrong',Style.RESET_ALL, a,mode,b,"=",c)
 
+def difficulty(d):
+	
+	if d == "easy":
+		return 10 
+	if d == "norm":
+		return 1000
+	if d == "hard":
+		return 10000
 
 def menu():	
 	print("Hello")
@@ -31,13 +39,18 @@ def menu():
 		print("+ |sum","- |subtraction",sep='\n')
 		
 		mode = input()
+		if mode == "exit" or mode == "":
+			break
+		
+		print("1-100 |easy","100-1000 |norm","1000-10000 |hard",sep='\n')
+		
+		diff = input()
 		
 		if mode == "+":
-			main("+")
+			main("+",difficulty(diff)/10,difficulty(diff)*10)
 		if mode == "-":
-			main("-")
-		if mode == "exit":
-			break	
+			main("-",difficulty(diff)/10,difficulty(diff)*10)
+	
 		else:
 			print("Ops,something wrong")
 
