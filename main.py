@@ -2,57 +2,67 @@ import random
 from colorama import Fore, Style
 import operator
 
-ops = { "+": operator.add, "-": operator.sub }
+ops = { '+': operator.add, '-': operator.sub } # '+' = +
 
 def main(mode,x=1,y=100):
-	while True==True:
-		a = random.randint(x,y)
-		b = random.randint(x,y)
-		c = ops[mode](a,b)
+			while True:
+				a = random.randint(x,y)
+				b = random.randint(x,y)
+				c = ops[mode](a,b)
 
-		print(a,mode,b,"= ", end='')
-		result = input()
+				print(a,mode,b,"= ", end='')
+				try:
+					result = input()
+					if result == 'exit' or result == '':
+						break
+				except ValueError:
+					print("Ops,something wrong")
+				result = int(result)
 
-		if result == "exit":
-			break
+				if result == c:
+					print(Fore.GREEN + 'Right',Style.RESET_ALL)
 
-		result = int(result)
+				if result != c:
+					print(Fore.RED + 'Wrong',Style.RESET_ALL, a,mode,b,"=",c)
 
-		if result == c:
-			print(Fore.GREEN + 'Right',Style.RESET_ALL)
-
-		if result != c:
-			print(Fore.RED + 'Wrong',Style.RESET_ALL, a,mode,b,"=",c)
-
+#def exit(i):
+#	if mode == "exit" or mode == "":
+#		break
 def difficulty(d):
-	
-	if d == "easy":
+
+	if d == 'easy' or d == 'e':
 		return 10 
-	if d == "norm":
+	if d == 'norm' or d == 'n':
 		return 1000
-	if d == "hard":
+	if d == 'hard'or d == 'h':
 		return 10000
 
 def menu():	
-	print("Hello")
-	while True==True:
+	print('Hello')
+	while True:
 		print("+ |sum","- |subtraction",sep='\n')
-		
-		mode = input()
-		if mode == "exit" or mode == "":
-			break
-		
-		print("1-100 |easy","100-1000 |norm","1000-10000 |hard",sep='\n')
-		
-		diff = input()
-		
-		if mode == "+":
-			main("+",difficulty(diff)/10,difficulty(diff)*10)
-		if mode == "-":
-			main("-",difficulty(diff)/10,difficulty(diff)*10)
-	
-		else:
-			print("Ops,something wrong")
 
-		
+		try:	
+			mode = input()
+			if mode == 'exit' or mode == '':
+				break
+		except ValueError:
+			print("Ops,something wrong")
+		print("1-100 |easy","100-10000 |norm","1000-100000 |hard",sep='\n')
+
+		try:
+			diff = input()
+			if diff == 'exit' or diff == '':
+				break
+		except ValueError:
+			print("Ops, something wrong")
+
+		# берём число из функции и добавляем\уменьшаем его один разряд 
+		# Fu*k my English,sorry.	
+		if mode == '+':
+			main("+",difficulty(diff)/10,difficulty(diff)*10)
+		elif mode == '-':
+			main("-",difficulty(diff)/10,difficulty(diff)*10)
+
+
 menu()
