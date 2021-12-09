@@ -2,7 +2,7 @@ import random
 from colorama import Fore, Style
 import operator
 
-ops = { '+': operator.add, '-': operator.sub } # '+' = +
+ops = { '+': operator.add, '-': operator.sub } # '+' = + ; '-' = -o
 
 def main(mode,x=1,y=100):
 			while True:
