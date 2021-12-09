@@ -57,7 +57,7 @@ def menu():
 		except ValueError:
 			print("Ops, something wrong")
 
-		# берём число из функции и добавляем\уменьшаем его один разряд 
+		# берём число из функции и добавляем\уменьшаем его на один разряд 
 		# Fu*k my English,sorry.	
 		if mode == '+':
 			main("+",difficulty(diff)/10,difficulty(diff)*10)
