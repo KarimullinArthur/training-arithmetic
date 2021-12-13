@@ -5,7 +5,7 @@
 
 lib:
 ```sh
-apt install colorama
+pip install colorama
 ```
 -----
 Just launch main.py
