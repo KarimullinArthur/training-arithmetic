@@ -24,10 +24,6 @@ def main(mode,x=1,y=100):
 
 				if result != c:
 					print(Fore.RED + 'Wrong',Style.RESET_ALL, a,mode,b,"=",c)
-
-#def exit(i):
-#	if mode == "exit" or mode == "":
-#		break
 def difficulty(d):
 
 	if d == 'easy' or d == 'e':
